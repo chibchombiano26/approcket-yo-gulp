@@ -1,4 +1,5 @@
-/* global angular, Parse, hefesoft*/
+/* global angular, Parse*/
+
 
 angular.module('cards')
 .service('simpsons', function($q){
@@ -28,7 +29,6 @@ angular.module('cards')
  			else{
  			 deferred.reject(error);
  			}
- 		 	console.log(error);	
 		}
 	  )
 		

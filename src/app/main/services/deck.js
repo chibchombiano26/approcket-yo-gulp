@@ -72,20 +72,20 @@ service('deckService', function(constantsService, utilService, simpsons, $q){
     	else{
     	    switch (type) {
     	        case 'Simpson':
-    	            var items = fromParse;    
+    	            items = fromParse;    
     	            break;
     	            
     	        case 'hiragana':
-    	            var items = hiragana;    
+    	            items = hiragana;    
     	            break;
     	            
 	            case 'Letters':
-    	            var items = letters;    
+    	            items = letters;    
     	            break;
     	        
     	        
     	        default:
-    	            var items = fromParse;    
+    	            items = fromParse;    
     	    }
     	    
     	}

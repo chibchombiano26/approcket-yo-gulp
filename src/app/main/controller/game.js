@@ -1,11 +1,16 @@
 /*global angular*/
+
+
 var app = angular.module('cards', ['ngAnimate']);
 app.controller("gameController", function($scope) {
-    $scope.rows = 2;
-    $scope.columns = 2;
-    $scope.level = 1;
-    $scope.type = "Simpson";
-    $scope.showType = true;
+    
+	var vm = $scope;
+    
+    vm.rows = 2;
+    vm.columns = 2;
+    vm.level = 1;
+    vm.type = "Simpson";
+    vm.showType = true;
     
 	$scope.$on('GameResult', function (event, payload) {
 	    var item = payload.win;
@@ -13,28 +18,28 @@ app.controller("gameController", function($scope) {
 	});
       
     
-    $scope.typeChanged = function(){
-        $scope.showType = false;    
+    vm.typeChanged = function(){
+        vm.showType = false;    
     }
     
     function levelPassed(item){
         if(item){
             
-            var level = $scope.level +1;
+            var level = vm.level +1;
             
             if(pair(level)){
-                $scope.columns  = $scope.columns +2;    
+                vm.columns  = vm.columns +2;    
             }
             else{
-                $scope.rows  = $scope.rows +2;    
+                vm.rows  = vm.rows +2;    
             }
             
-            $scope.level = level;
+            vm.level = level;
         }
         else{
-            $scope.rows  = 2;
-            $scope.columns  = 2;
-            $scope.level = 1;
+            vm.rows  = 2;
+            vm.columns  = 2;
+            vm.level = 1;
             //alert("ouch")
         }
     }

@@ -4,11 +4,13 @@
 angular.module('cards')
 .controller("CardController", function($rootScope, $scope, deckService, constantsService, $timeout, $interval, global) {
 	
-	$scope.showImage = true;
+	var vm = $scope;
+	
+	vm.showImage = true;
 	var tipo;
 	
 	$scope.$watch('level', function() {
-		$scope.init(tipo);
+		vm.init(tipo);
 	});
 	
 	$scope.$watch('type', function(e) {
@@ -28,48 +30,48 @@ angular.module('cards')
 				$scope.showImage = true;
 		}
 		
-		$scope.init(e);
+		vm.init(e);
 		
 	});
 
-	$scope.init = function(type){
-		constantsService['rows'] = $scope.rows;
-		constantsService['columns'] = $scope.columns;
+	vm.init = function(type){
+		constantsService['rows'] = vm.rows;
+		constantsService['columns'] = vm.columns;
 		constantsService.constants();
 		
 		deckService.createDeck(type).then(function(result){
-			$scope.deck = result;	
+			vm.deck = result;	
 		})
-		$scope.isGuarding = true;
-		$scope.inGame = false;	
+		vm.isGuarding = true;
+		vm.inGame = false;	
 		
-		$scope.start();
+		vm.start();
 	}
 
 
 	// for the timer
-	$scope.timeLimit = 60000;
-	$scope.isCritical = false;
+	vm.timeLimit = 60000;
+	vm.isCritical = false;
 	var timer = null;
 
 	// start the timer as soon as the player presses start
-	$scope.start = function(){
+	vm.start = function(){
 		
 		if(timer && timer !== null){
 			$interval.cancel(timer);
 		}
 		
 		// set the time of 1 minutes and remove the cards guard
-		$scope.timeLimit = 60000;
-		$scope.isGuarding = false;
-		$scope.inGame = true;
+		vm.timeLimit = 60000;
+		vm.isGuarding = false;
+		vm.inGame = true;
 		
 		timer = $interval(function(){
 			
-			$scope.timeLimit -= 1000;
-			$scope.isCritical = $scope.timeLimit <= 10000 ? true : false;
+			vm.timeLimit -= 1000;
+			vm.isCritical = vm.timeLimit <= 10000 ? true : false;
 			
-			if ($scope.timeLimit === 0) {
+			if (vm.timeLimit === 0) {
 				$interval.cancel(timer);
 			}
 			
@@ -78,9 +80,9 @@ angular.module('cards')
 		
 	}	
 	// function to stop the timer
-	$scope.stopTimer = function() {
+	vm.stopTimer = function() {
 	 
-	  $scope.inGame = false;
+	  vm.inGame = false;
 	  global.previousCard = null;
 	  global.currentSessionOpen = false;
 	  global.numPairs = 0;
@@ -95,7 +97,7 @@ angular.module('cards')
 	}
 	
 	$scope.$on('complete', function (event, payload) {
-    	$scope.stopTimer();     
+    	vm.stopTimer();     
     });
 
 }); 

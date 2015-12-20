@@ -4,7 +4,7 @@ directive('card', function(){
  
  	var directive = {};
 	directive.restrict = 'E';
-	directive.templateUrl = "app/main/directives/card.html";
+	directive.templateUrl = "app/main/templates/card.html";
 	directive.controller = "cardController";
 	
 	directive.link = function (scope, iElement, attrs) {
