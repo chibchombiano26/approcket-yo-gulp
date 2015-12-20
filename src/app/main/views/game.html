@@ -1,0 +1,11 @@
+<div ng-show="showType">
+	Type:
+	<select name="singleSelect" ng-model="type" ng-change="typeChanged()">
+      <option value="Simpson">Simpson</option>
+      <option value="hiragana">Hiragana</option>
+      <option value="Letters">Letters</option>
+    </select>
+    <br>
+</div>
+		
+<board columns="columns" rows="rows" level="level" type="type" callback="levelPassed(item)"></board>

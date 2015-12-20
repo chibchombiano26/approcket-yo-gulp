@@ -1,0 +1,12 @@
+<!-- isGuarding ||-->
+
+<div class="card_container {{!card.isFaceUp ? '' : 'flip'}}" ng-click="check(card)" >
+	<div class="card shadow">
+		<div class="front face"></div>
+		<div class="back face text-center pagination-center">
+			<div ng-show="showImage" class="imageCard" style="background-image: url({{card.item.pictureUrl}})">
+			</div>
+			<p ng-hide="showImage">{{card.item}} </p>
+		</div>
+	</div>
+</div>

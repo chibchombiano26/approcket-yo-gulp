@@ -1,0 +1,10 @@
+<div class="timer" ng-class="{critical:isCritical}">
+		{{timeLimit | date: 'm:ss'}} 	
+</div>
+<table class="table-top">
+	<tr ng-repeat="row in deck.rows">
+		<td ng-repeat="card in row.cards">
+			<card show-image="showImage" card="card" is-guarding="isGuarding" in-game="inGame" callback="callback()"></card>
+		</td>
+	</tr>
+</table>
