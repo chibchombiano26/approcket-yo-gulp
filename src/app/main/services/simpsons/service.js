@@ -22,7 +22,6 @@ angular.module('cards')
 			
 		},
 		function(entidad, error){
-			//Cuando no se encuentra el registro
  			if(entidad.code === 101){
  				deferred.resolve({});
  			}

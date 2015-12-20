@@ -40,7 +40,7 @@ app.controller("gameController", function($scope) {
             vm.rows  = 2;
             vm.columns  = 2;
             vm.level = 1;
-            //alert("ouch")
+            alert("ouch")
         }
     }
     

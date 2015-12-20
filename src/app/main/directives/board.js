@@ -4,7 +4,7 @@ directive('board', function(){
  
  	var directive = {};
 	directive.restrict = 'E';
-	directive.controller = "CardController";
+	directive.controller = "boardController";
 	directive.templateUrl = "app/main/templates/template.html";
 	directive.scope = {
 	    rows : '=',

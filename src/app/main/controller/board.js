@@ -2,7 +2,7 @@
 
 
 angular.module('cards')
-.controller("CardController", function($rootScope, $scope, deckService, constantsService, $timeout, $interval, global) {
+.controller("boardController", function($rootScope, $scope, deckService, constantsService, $timeout, $interval, global) {
 	
 	var vm = $scope;
 	
